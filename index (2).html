@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>
+            Футбольный магазин
+        </title>         
+        <style>
+            body {
+                background-color: #e0f7fa;
+                margin: 0;
+                padding: 0;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            header {
+               background-color: #00796b;
+               padding: 20px;
+            }
+            .logo {
+                color: white;
+                text-align: center;
+            }
+            .menu {
+                display: flex;
+                gap: 10vh;
+            }
+            .products {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 20px;
+                padding: 20px;
+            }
+            .product {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                background-color: white;
+                border: 2px solid #ccc;
+                border-radius: 10px;
+                height: 300px;
+                width: 200px;
+                text-align: center;
+                padding: 15px
+            }
+            .product img {
+                width: 80px;
+                height: 80px;
+                margin: 0 auto;
+            }
+            .product h3 {
+                color: #005c51;
+                margin: 10px 0 5px;
+            }
+            .buy-button {
+                background-color: #009688;
+                color: white;
+                padding: 10px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            .buy-button:hover{
+                background-color: #b8f1eb;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <h1>Футбольный магазин</h1>
+            </div>
+            <div class="menu">
+                <p>Каталог</p>
+                <p>О нас</p>
+                <p>Контакты</p>
+                <p>Корзина</p>
+            </div>
+        </header>
+        <div class="products">
+
+            <div class="product">
+                <h3>Футбольный мяч</h3>
+                <img src="ball.png">
+                <p>Описание: Классический мяч очень удобен!</p>
+                <button class="buy-button">
+                    В корзину
+                </button>
+            </div>
+
+            <div class="product">
+                <h3>Футбольные бутсы</h3>
+                <img src="boots.png">
+                <p>Описание: Классические бутсы очень удобны!</p>
+                <button class="buy-button">
+                    В корзину
+                </button>
+            </div>
+
+            <div class="product">
+                <h3>Вратарские перчатки</h3>
+                <img src="gloves.png">
+                <p>Описание: Вратарские перчатки очень удобны!</p>
+                <button class="buy-button">
+                    В корзину
+                </button>
+            </div>
+
+            <div class="product">
+                <h3>Липкий спрей для перчаток</h3>
+                <img src="download.jpg">
+                <p>Описание: Спрей очень удобен для наношения на перчатки!</p>
+                <button class="buy-button">
+                    В корзину
+                </button>
+            </div>
+
+            <div class="product">
+                <h3>Фишки для тренеровок</h3>
+                <img src="main_product_148820564093364400.jpg">
+                <p>Описание: Фишки очень удобны для занятий на открытом воздухе!</p>
+                <button class="buy-button">
+                    В корзину
+                </button>
+            </div>
+
+        </div>
+        <footer>
+            ©
+        </footer>
+    </body>
+</html>
