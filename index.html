@@ -4,65 +4,7 @@
         <title>
             Футбольный магазин
         </title>         
-        <style>
-            body {
-                background-color: #e0f7fa;
-                margin: 0;
-                padding: 0;
-                font-family: Arial, Helvetica, sans-serif;
-            }
-            header {
-               background-color: #00796b;
-               padding: 20px;
-            }
-            .logo {
-                color: white;
-                text-align: center;
-            }
-            .menu {
-                display: flex;
-                gap: 10vh;
-            }
-            .products {
-                display: flex;
-                justify-content: center;
-                flex-wrap: wrap;
-                gap: 20px;
-                padding: 20px;
-            }
-            .product {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                background-color: white;
-                border: 2px solid #ccc;
-                border-radius: 10px;
-                height: 300px;
-                width: 200px;
-                text-align: center;
-                padding: 15px
-            }
-            .product img {
-                width: 80px;
-                height: 80px;
-                margin: 0 auto;
-            }
-            .product h3 {
-                color: #005c51;
-                margin: 10px 0 5px;
-            }
-            .buy-button {
-                background-color: #009688;
-                color: white;
-                padding: 10px;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-            }
-            .buy-button:hover{
-                background-color: #b8f1eb;
-            }
-        </style>
+        <link rel="stylesheet" href="main.css">
     </head>
     <body>
         <header>
@@ -70,7 +12,8 @@
                 <h1>Футбольный магазин</h1>
             </div>
             <div class="menu">
-                <p>Каталог</p>
+                <a href="index.html"><p>Главная</p></a>
+                <a href="catalog.html"><p>Каталог</p></a>
                 <p>О нас</p>
                 <p>Контакты</p>
                 <p>Корзина</p>
