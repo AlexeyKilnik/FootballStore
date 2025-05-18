@@ -68,9 +68,12 @@ a {
     display: flex;
     flex-direction: column;
     background-color: #ffffff;
-    padding: 20px;
+    padding: 0px 20px 20px 20px;
     text-align: center;
     height:max-content;
+}
+
+.filters h3 {
 }
 
 .filters label {
