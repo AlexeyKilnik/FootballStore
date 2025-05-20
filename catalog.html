@@ -19,7 +19,7 @@
                 <p>Корзина</p>
             </div>
         </header>
-        <main class="catalog">
+        <div class="catalog">
             <div class="filters">
                 <h3>Фильтры</h3>
                 <table>
@@ -44,17 +44,78 @@
                         <td>Фишки</td>
                     </tr>
                 </table>
-                <button onclick="">Применить фильтр</button>
-                <button onclick="">Сбросить фильтр</button>
+                <button onclick="updateFilter()">Применить фильтр</button>
+                <button onclick="resetFilter()">Сбросить фильтр</button>
             </div>
-            <div class="products"> 
-            </div>
-        </main>
+
+            <div class="products" id="products-container"></div>
+        </div>
         <footer>
             © FootbalStore
         </footer>
-        <style>
+
+        <script>
+            const products = [
+                { name: "Футбольный мяч", image: "ball.png", description: "Классический мяч очень удобен!", type: "мяч" },
+                { name: "Футбольные бутсы", image: "boots.png", description: "Классические бутсы очень удобны!", type: "бутсы" },
+                { name: "Вратарские перчатки", image: "gloves.png", description: "Очень удобные перчатки!", type: "перчатки" },
+                { name: "Липкий спрей для перчаток", image: "download.jpg", description: "Спрей для перчаток!", type: "спрей" },
+                { name: "Фишки для тренеровок", image: "fishki.jpg", description: "Фишки для тренировок", type: "фишки" },
+                { name: "Футбольный мяч", image: "ball.png", description: "Ещё один мяч", type: "мяч" },
+                { name: "Футбольные бутсы", image: "boots.png", description: "Запасная пара бутс", type: "бутсы" }
+            ];
+
+            function updateFilter() {
+                const checkboxes = document.querySelectorAll('.filters input[type="checkbox"]');
+                let activeTypes = [];
+                checkboxes.forEach(chk => {
+                    if(chk.checked){
+                        activeTypes.push(chk.value)
+                    }
+                })
+                showProducts(activeTypes);
+            }
+
+            function resetFilter(){
             
-        </style>
+            }
+
+            function showProducts(filters){
+                const container = document.getElementById('products-container')
+                container.innerHTML = '';
+                products.forEach(product => {
+                    // Есть ли такой тип у товара
+                    if(filters.length === 0 || filters.includes(product.type)){
+                        const div = document.createElement("div");
+                        div.className = 'product';
+                        div.innerHTML = `
+                            <h3>${product.name}</h3>
+                            <img src="${product.image}">
+                            <p>Описание: ${product.description}</p>
+                            <button class="buy-button">В корзину</button>
+                        `
+                        container.appendChild(div);
+                    }
+                })
+            }
+            showProducts([]);
+
+            // function helloWorld(name, age){
+            //     if(age >= 15 && age <= 18){
+            //         //CODE
+            //         alert("Играть в футбол можно")
+            //     } else if (age > 18){
+            //         alert("Играть в футбол можно на профессиональном уровне")
+            //     } else {
+            //         //CODE
+            //         alert("Пока нельзя играть в футбол")
+            //     }
+            //     // alert('Hello World,'+ name +'!');
+            // }
+
+
+
+            // helloWorld("Алексей", 200);
+        </script>
     </body>
 </html>
