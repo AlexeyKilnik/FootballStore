@@ -4,7 +4,7 @@
         <title>
             Футбольный магазин
         </title>         
-        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
         <header>
@@ -43,6 +43,10 @@
                         <th><input type="checkbox" value="фишки" type></th>
                         <td>Фишки</td>
                     </tr>
+                    <tr>
+                        <th><input type="checkbox" value="форма" type></th>
+                        <td>Форма</td>
+                    </tr>
                 </table>
                 <button onclick="updateFilter()">Применить фильтр</button>
                 <button onclick="resetFilter()">Сбросить фильтр</button>
@@ -56,14 +60,15 @@
 
         <script>
             const products = [
-                { name: "Футбольный мяч", image: "ball.png", description: "Классический мяч очень удобен!", type: "мяч" },
-                { name: "Футбольные бутсы", image: "boots.png", description: "Классические бутсы очень удобны!", type: "бутсы" },
-                { name: "Вратарские перчатки", image: "gloves.png", description: "Очень удобные перчатки!", type: "перчатки" },
-                { name: "Липкий спрей для перчаток", image: "download.jpg", description: "Спрей для перчаток!", type: "спрей" },
-                { name: "Фишки для тренеровок", image: "fishki.jpg", description: "Фишки для тренировок", type: "фишки" },
-                { name: "Футбольный мяч", image: "ball.png", description: "Ещё один мяч", type: "мяч" },
-                { name: "Футбольные бутсы", image: "boots.png", description: "Запасная пара бутс", type: "бутсы" }
-            ];
+                { name: "Футбольный мяч", image:"photo/ball.png", description: "Классический мяч очень удобен!", type: "мяч" },
+                { name: "Футбольные бутсы", image:"photo/boots.png", description: "Классические бутсы очень удобны!", type: "бутсы" },
+                { name: "Вратарские перчатки", image:"photo/gloves.png", description: "Очень удобные перчатки!", type: "перчатки" },
+                { name: "Липкий спрей для перчаток", image:"photo/download.jpg", description: "Спрей для перчаток!", type: "спрей" },
+                { name: "Фишки для тренеровок", image:"photo/fishki.jpg", description: "Фишки для тренировок", type: "фишки" },
+                { name: "Футбольный мяч", image:"photo/ball.png", description: "Ещё один мяч", type: "мяч" },
+                { name: "Футбольная форма", image:"photo/full_31500.jpg", description: "Форма очень удобна!", type: "форма" },
+                { name: "Футбольные бутсы", image:"photo/boots.png", description: "Запасная пара бутс", type: "бутсы" },
+        ]
 
             function updateFilter() {
                 const checkboxes = document.querySelectorAll('.filters input[type="checkbox"]');
@@ -76,8 +81,13 @@
                 showProducts(activeTypes);
             }
 
-            function resetFilter(){
-            
+            function resetFilter() {
+                const checkboxes = document.querySelectorAll('.filters input[type="checkbox"]');
+                checkboxes.forEach(chk => {
+                    chk.checked=false
+
+                })
+                showProducts([]);
             }
 
             function showProducts(filters){
