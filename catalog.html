@@ -73,11 +73,14 @@
             function updateFilter() {
                 const checkboxes = document.querySelectorAll('.filters input[type="checkbox"]');
                 let activeTypes = [];
+                let count = 0;
                 checkboxes.forEach(chk => {
                     if(chk.checked){
                         activeTypes.push(chk.value)
+                        count++;
                     }
                 })
+                alert(count);
                 showProducts(activeTypes);
             }
 
