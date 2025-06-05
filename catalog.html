@@ -54,7 +54,7 @@
 
             <div class="products" id="products-container"></div>
         </div>
-        <footer>
+        <footer id="footer">
             © FootbalStore
         </footer>
 
@@ -94,6 +94,8 @@
                 const container = document.getElementById('products-container')
                 container.innerHTML = '';
                 products.forEach(product => {
+
+
                     // Есть ли такой тип у товара
                     if(filters.length === 0 || filters.includes(product.type)){
                         const div = document.createElement("div");
@@ -109,6 +111,25 @@
                 })
             }
             showProducts([]);
+            const byButtons = document.querySelectorAll('.buy-button')
+            byButtons.forEach(byButton => {
+                byButton.addEventListener("click", function(event){
+                    console.log(event.target)
+                    event.target.style.backgroundColor = "yellow";
+                    this.style.backgroundColor = "yellow";
+                    window.location.href = "about.html"
+                });
+            });
+
+            const productCards = document.querySelectorAll('.product')
+            productCards.forEach(card => {
+                card.addEventListener("mouseover", function(){
+                    this.classList.add("highlight");
+                })
+                card.addEventListener("mouseout", function(){
+                    this.classList.remove("highlight");
+                })
+            })
         </script>
     </body>
 </html>
