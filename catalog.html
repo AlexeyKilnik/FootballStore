@@ -54,7 +54,7 @@
 
             <div class="products" id="products-container"></div>
         </div>
-        <footer>
+        <footer id="footer">
             © FootbalStore
         </footer>
 
@@ -68,7 +68,7 @@
                 { name: "Футбольный мяч", image:"photo/ball.png", description: "Ещё один мяч", type: "мяч" },
                 { name: "Футбольная форма", image:"photo/full_31500.jpg", description: "Форма очень удобна!", type: "форма" },
                 { name: "Футбольные бутсы", image:"photo/boots.png", description: "Запасная пара бутс", type: "бутсы" },
-        ]
+            ];
 
             function updateFilter() {
                 const checkboxes = document.querySelectorAll('.filters input[type="checkbox"]');
@@ -97,6 +97,8 @@
                 const container = document.getElementById('products-container')
                 container.innerHTML = '';
                 products.forEach(product => {
+
+
                     // Есть ли такой тип у товара
                     if(filters.length === 0 || filters.includes(product.type)){
                         const div = document.createElement("div");
@@ -112,23 +114,25 @@
                 })
             }
             showProducts([]);
+            const byButtons = document.querySelectorAll('.buy-button')
+            byButtons.forEach(byButton => {
+                byButton.addEventListener("click", function(event){
+                    console.log(event.target)
+                    event.target.style.backgroundColor = "yellow";
+                    this.style.backgroundColor = "yellow";
+                    window.location.href = "about.html"
+                });
+            });
 
-            // function helloWorld(name, age){
-            //     if(age >= 15 && age <= 18){
-            //         //CODE
-            //         alert("Играть в футбол можно")
-            //     } else if (age > 18){
-            //         alert("Играть в футбол можно на профессиональном уровне")
-            //     } else {
-            //         //CODE
-            //         alert("Пока нельзя играть в футбол")
-            //     }
-            //     // alert('Hello World,'+ name +'!');
-            // }
-
-
-
-            // helloWorld("Алексей", 200);
+            const productCards = document.querySelectorAll('.product')
+            productCards.forEach(card => {
+                card.addEventListener("mouseover", function(){
+                    this.classList.add("highlight");
+                })
+                card.addEventListener("mouseout", function(){
+                    this.classList.remove("highlight");
+                })
+            })
         </script>
     </body>
 </html>

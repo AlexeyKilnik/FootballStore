@@ -86,3 +86,8 @@ a {
     border-radius: 5px;
     cursor: pointer;
 }
+
+.highlight {
+    border: 2px solid #00796b;
+    transition: border 0.3s ease;
+}
