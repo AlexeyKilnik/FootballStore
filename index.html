@@ -14,7 +14,7 @@
             <div class="menu">
                 <a href="index.html"><p>Главная</p></a>
                 <a href="catalog.html"><p>Каталог</p></a>
-                <a href="about.html">О нас</p>
+                <a href="about.html">О нас</p></a>
                 <p>Контакты</p>
                 <p>Корзина</p>
             </div>
@@ -79,6 +79,56 @@
 
 
         </div>
+        <script>
+            const recommended = [
+                { name: "Футбольный мяч", image:"photo/ball.png", description: "Классический мяч очень удобен!", type: "мяч" },
+                { name: "Футбольные бутсы", image:"photo/boots.png", description: "Классические бутсы очень удобны!", type: "бутсы" },
+                { name: "Вратарские перчатки", image:"photo/gloves.png", description: "Очень удобные перчатки!", type: "перчатки" },
+            ];
+
+            function createRecommendedSection(){
+                const section = document.createElement("section");
+                section.classList.add("recommended");
+                const heading = document.createElement("h2");
+                heading.textContent = "Рекомендуем";
+                section.appendChild(heading);
+
+                const products = document.createElement("div");
+                products.classList.add('products');
+                section.appendChild(products);
+
+                recommended.forEach(product => {
+                    const card = document.createElement('div');
+                    card.classList.add("product");
+
+                    const title = document.createElement("h3");
+                    title.textContent = product.name;
+                    card.appendChild(title);
+
+                    const img = document.createElement("img");
+                    img.setAttribute("src", product.image);
+                    card.appendChild(img);
+
+                    const desc = document.createElement('p');
+                    desc.textContent = product.description;
+                    card.appendChild(desc);
+
+                    const button = document.createElement("button");
+                    button.textContent = "Удалить";
+                    button.classList.add('buy-button');
+                    button.addEventListener("click", () => {
+                        card.remove();
+                    })
+                    card.appendChild(button);
+
+                    products.appendChild(card);
+                });
+
+                document.body.appendChild(section);
+            };
+
+            createRecommendedSection();
+        </script>
         <footer>
             © FootbalStore
         </footer>
